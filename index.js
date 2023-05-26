@@ -16,6 +16,10 @@ app.use("/dealers", dealerRouter);
 app.use(authanticate)
  app.use("/car", carRouter);
 
+ app.get('/',(req,res)=>{
+   res.send("this is car page")
+ })
+
 app.listen(process.env.port, async () => {
   try {
     await connection;
