@@ -26,6 +26,8 @@ carRouter.post("/create", async (req, res) => {
 
 carRouter.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
+  let car = await CarModal.findOne({ _id: id });
+  let userID_id_Car = car.userID;
   const useID_makingreq = req.body.userID;
   try {
     if (useID_makingreq !== userID_id_Car) {
