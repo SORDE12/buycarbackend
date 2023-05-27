@@ -33,11 +33,11 @@ dealerRouter.post("/register", async (req, res) => {
                   let token = jwt.sign({ userID:user[0]._id }, "masai");
                   res.send({ msg: "login successfully", token: token });
               }else{
-                  res.send({ msg: "wrong credentials" });
+                  res.send({ msg: "wrong credentials",err:err.message });
               }
           });
       } else {
-          res.send({ msg: "wrong credentials" });
+          res.send({ msg: "wrong credentials",err:err.message  });
       }
     } catch (err) {
       res.send({ msg: "not registered", err: err.message });
