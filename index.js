@@ -5,6 +5,7 @@ let cors = require("cors");
 let { dealerRouter } = require("./routes/Dealer.route");
 let { carRouter } = require("./routes/Car.route");
 const { authanticate } = require("./middleware/authantification");
+const { newCarRouter } = require("./routes/Oem.route");
 let app = express();
 require("dotenv").config();
 app.use(
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/dealers", dealerRouter);
+app.use("/newcars", newCarRouter);
 
 app.use(authanticate);
 app.use("/car", carRouter);

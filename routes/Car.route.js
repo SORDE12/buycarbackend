@@ -1,7 +1,7 @@
 let express = require("express");
 let carRouter = express.Router();
 const { CarModal } = require("../model/car.model");
-const { userModal } = require("../model/user.model");
+
 
 carRouter.get("/", async (req, res) => {
   let query = req.query;
